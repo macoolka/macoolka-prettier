@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`format json 1`] = `
+"{
+  \\"scripts\\": {
+    \\"prepush\\": \\"npm run test\\",
+    \\"prepublishOnly\\": \\"npm run clean && npm run reinstall && npm run lint  && npm run test && npm run build\\",
+    \\"coverage\\": \\"rimraf coverage && jest --config jest.config.json --coverage\\"
+  }
+}
+"
+`;
+
+exports[`format object 1`] = `
+"{
+  \\"a\\": 1,
+  \\"b\\": 2,
+  \\"scripts\\": {
+    \\"prepublishOnly\\": \\"npm run clean && npm run reinstall && npm run lint  && npm run test && npm run build\\"
+  }
+}
+"
+`;
+
+exports[`format typescript 1`] = `
+"export function rand() {
+  return Math.round(Math.random() * 20) - 10
+}
+
+export function getModalStyle() {
+  const top = 50 + rand()
+  const left = 50 + rand()
+
+  return {
+    top: \`\${top}%\`,
+    left: \`\${left}%\`,
+    transform: \`translate(-\${top}%, -\${left}%)\`
+  }
+}
+"
+`;
+
+exports[`monadFormat json 1`] = `
+"{
+  \\"scripts\\": {
+    \\"prepush\\": \\"npm run test\\",
+    \\"prepublishOnly\\": \\"npm run clean && npm run reinstall && npm run lint  && npm run test && npm run build\\",
+    \\"coverage\\": \\"rimraf coverage && jest --config jest.config.json --coverage\\"
+  }
+}
+"
+`;
+
+exports[`monadFormat json error 1`] = `"\\"SyntaxError: Unexpected token, expected \\\\\\",\\\\\\" (3:35)\\\\n\\\\u001b[0m \\\\u001b[90m 1 | \\\\u001b[39m{\\\\u001b[0m\\\\n\\\\u001b[0m \\\\u001b[90m 2 | \\\\u001b[39m            \\\\u001b[32m\\\\\\"scripts\\\\\\"\\\\u001b[39m\\\\u001b[33m:\\\\u001b[39m \\\\u001b[0m\\\\n\\\\u001b[0m\\\\u001b[31m\\\\u001b[1m>\\\\u001b[22m\\\\u001b[39m\\\\u001b[90m 3 | \\\\u001b[39m                         \\\\u001b[32m\\\\\\"prepush\\\\\\"\\\\u001b[39m\\\\u001b[33m:\\\\u001b[39m \\\\u001b[32m\\\\\\"npm run test\\\\\\"\\\\u001b[39m\\\\u001b[33m,\\\\u001b[39m\\\\u001b[0m\\\\n\\\\u001b[0m \\\\u001b[90m   | \\\\u001b[39m                                  \\\\u001b[31m\\\\u001b[1m^\\\\u001b[22m\\\\u001b[39m\\\\u001b[0m\\\\n\\\\u001b[0m \\\\u001b[90m 4 | \\\\u001b[39m\\\\u001b[32m\\\\\\"prepublishOnly\\\\\\"\\\\u001b[39m\\\\u001b[33m:\\\\u001b[39m \\\\u001b[32m\\\\\\"npm run clean && npm run reinstall && npm run lint  && npm run test && npm run build\\\\\\"\\\\u001b[39m\\\\u001b[33m,\\\\u001b[39m\\\\u001b[0m\\\\n\\\\u001b[0m \\\\u001b[90m 5 | \\\\u001b[39m        \\\\u001b[32m\\\\\\"coverage\\\\\\"\\\\u001b[39m\\\\u001b[33m:\\\\u001b[39m \\\\u001b[32m\\\\\\"rimraf coverage && jest --config jest.config.json --coverage\\\\\\"\\\\u001b[39m\\\\u001b[0m\\\\n\\\\u001b[0m \\\\u001b[90m 6 | \\\\u001b[39m              }\\\\u001b[33m,\\\\u001b[39m\\\\u001b[0m\\""`;
+
+exports[`monadFormat object 1`] = `
+"{
+  \\"a\\": 1,
+  \\"b\\": 2,
+  \\"scripts\\": {
+    \\"prepublishOnly\\": \\"npm run clean && npm run reinstall && npm run lint  && npm run test && npm run build\\"
+  }
+}
+"
+`;
+
+exports[`monadFormat typescript 1`] = `
+"export function rand() {
+  return Math.round(Math.random() * 20) - 10
+}
+
+export function getModalStyle() {
+  const top = 50 + rand()
+  const left = 50 + rand()
+
+  return {
+    top: \`\${top}%\`,
+    left: \`\${left}%\`,
+    transform: \`translate(-\${top}%, -\${left}%)\`
+  }
+}
+"
+`;
