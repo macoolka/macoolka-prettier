@@ -1,5 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`format css 1`] = `
+".a {
+  color: red;
+  margin: 6;
+}
+"
+`;
+
+exports[`format css 2`] = `
+".a {
+  color: red;
+  margin: 6;
+}
+"
+`;
+
 exports[`format json 1`] = `
 "{
   \\"scripts\\": {
@@ -23,6 +39,24 @@ exports[`format object 1`] = `
 `;
 
 exports[`format typescript 1`] = `
+"export function rand() {
+  return Math.round(Math.random() * 20) - 10
+}
+
+export function getModalStyle() {
+  const top = 50 + rand()
+  const left = 50 + rand()
+
+  return {
+    top: \`\${top}%\`,
+    left: \`\${left}%\`,
+    transform: \`translate(-\${top}%, -\${left}%)\`
+  }
+}
+"
+`;
+
+exports[`format typescript 2`] = `
 "export function rand() {
   return Math.round(Math.random() * 20) - 10
 }

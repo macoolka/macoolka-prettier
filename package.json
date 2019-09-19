@@ -17,7 +17,8 @@
     "precommit": "npm run lint",
     "prepush": "npm run test",
     "all": "npm run clean && tsc && jest  --coverage && tslint -p tsconfig.json",
-    "coverage": "rimraf coverage && jest  --coverage"
+    "coverage": "rimraf coverage && jest  --coverage",
+    "docs": "macoolka-doc"
   },
   "keywords": [
     "macoolka",
@@ -53,6 +54,7 @@
     "@types/jest": "^24.0.18",
     "@types/node": "^12.7.2",
     "jest": "^24.9.0",
+    "macoolka-doc": "^0.2.2",
     "rimraf": "^3.0.0",
     "ts-jest": "^24.0.2",
     "ts-node": "^8.3.0",

@@ -1,16 +1,27 @@
-import { format, monadFormat } from '../format'
+import format,{ monadFormat,formatCss,formatTs } from '../format'
 import { resolve } from 'path'
 import { readFileSync } from 'fs'
 import { pipe } from 'fp-ts/lib/pipeable'
 import * as E from 'fp-ts/lib/Either'
 import * as MN from 'macoolka-app/lib/MonadNode'
 describe('format', () => {
-
+    
     it('typescript', () => {
         const tsx = readFileSync(resolve(__dirname, 'formats', 'Modal.tsx'), { encoding: 'utf8' });
-        expect(format({ parser: 'typescript', content: tsx })).toMatchSnapshot()
+        expect(format({ parser: 'typescript' })(tsx)).toMatchSnapshot()
 
+        expect(formatTs(tsx)).toMatchSnapshot()
+    });
+    it('css', () => {
+        const css = `
+        .a{
+            color:red;
+            margin:6;
+        }
+        `;
+        expect(format({ parser: 'css' })(css)).toMatchSnapshot()
 
+        expect(formatCss(css)).toMatchSnapshot()
     });
     it('object', () => {
         const json = {
@@ -21,7 +32,7 @@ describe('format', () => {
             }
         }
 
-        expect(format({ parser: 'json', content: json })).toMatchSnapshot()
+        expect(format({ parser: 'json'})(json)).toMatchSnapshot()
 
 
     });
@@ -35,7 +46,7 @@ describe('format', () => {
 
         }
  `
-        expect(format({ parser: 'json', content: json })).toMatchSnapshot()
+        expect(format({ parser: 'json'})(json)).toMatchSnapshot()
 
     });
 
@@ -47,7 +58,7 @@ describe('monadFormat', () => {
     it('typescript', async () => {
         const tsx = readFileSync(resolve(__dirname, 'formats', 'Modal.tsx'), { encoding: 'utf8' });
         const result = await pipe(
-            monadFormat({ parser: 'typescript', content: tsx }),
+            monadFormat({ parser: 'typescript' })(tsx),
             MN.map(a => {
                 expect(a).toMatchSnapshot()
             }),
@@ -65,7 +76,7 @@ describe('monadFormat', () => {
             }
         }
         const result = await pipe(
-            monadFormat({ parser: 'json', content: json }),
+            monadFormat({ parser: 'json'})(json),
             MN.map(a => {
                 expect(a).toMatchSnapshot()
             }),
@@ -86,7 +97,7 @@ describe('monadFormat', () => {
         }
  `
         const result = await pipe(
-            monadFormat({ parser: 'json', content: json }),
+            monadFormat({ parser: 'json'})(json),
             MN.map(a => {
                 expect(a).toMatchSnapshot()
             }),
@@ -105,7 +116,7 @@ describe('monadFormat', () => {
         }
  `
         const result = await pipe(
-            monadFormat({ parser: 'json', content: json }),
+            monadFormat({ parser: 'json'})(json),
             MN.mapLeft(a => {
                 expect(a({})).toMatchSnapshot()
             }),

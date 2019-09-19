@@ -55,9 +55,57 @@ export const format = (a: PrettierInput): string => {
     return prettier.format(formatContent(a.content), option);
 };
 /**
+ * Format a code
+ * @desczh
+ * 格式化代码
+ * @since 0.2.5
+ */
+export const formatString = (o: Options) => (a: string|object): string => {
+
+    const option = merge({}, {
+        semi: false,
+        singleQuote: true,
+        printWidth: 120,
+    }, o);
+
+    return prettier.format(formatContent(a), option);
+};
+/**
+ * @since 0.2.5
+ */
+export const formatTs = formatString({ parser: 'typescript' })
+/**
+ * @since 0.2.5
+ */
+export const formatCss = formatString({ parser: 'css' })
+/**
+ * @since 0.2.5
+ */
+export const formatJson = formatString({ parser: 'json' })
+/**
+ * @since 0.2.5
+ */
+export const formatMarkdown = formatString({ parser: 'markdown' })
+/**
+ * @since 0.2.5
+ */
+export const formatGraphql = formatString({ parser: 'graphql' })
+/**
+ * @since 0.2.5
+ */
+export const formatMdx = formatString({ parser: 'mdx' })
+/**
+ * @since 0.2.5
+ */
+export const formatHtml = formatString({ parser: 'html' })
+/**
+ * @since 0.2.5
+ */
+export default formatString
+/**
  * Format a code Monad
  * @desczh
  * 格式化代码(Monad)
- * @since 0.2.0
+ * @since 0.2.5
  */
-export const monadFormat: MonadFunction<PrettierInput, string> = fromReader(format);
+export const monadFormat = (o: Options): MonadFunction< string|object, string> => fromReader(formatString(o));
